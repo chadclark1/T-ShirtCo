@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "T-Shirt Co": {
+            "applicationId": "s1dRWOG0Mq2pGHNZNrgs2emJ953qz4SKSt8uaXP9", 
+            "masterKey": "gLvkiQxoMCckGNN1hrhKPHy2JeKLJKU0h84LUSFk"
+        }, 
+        "_default": {
+            "link": "T-Shirt Co"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.19"
+    }
+}
