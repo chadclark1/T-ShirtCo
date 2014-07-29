@@ -73,26 +73,7 @@
     <b>Pre-Order Now</b><!-- for $9--></a>
 
 
-    <script>
-    var handler = StripeCheckout.configure({
-        key: 'pk_test_4TzBTXvA3s0wWq0WfUyJgGQv',
-        image: '/square-image.png',
-        token: function(token) {
-        // Use the token to create the charge with a server-side script.
-        // You can access the token ID with `token.id`
-        }
-    });
-
-    document.getElementById('btn-wide').addEventListener('click', function(e) {
-        // Open Checkout with further options
-        handler.open({
-        name: 'Connected Clothing',
-        description: 'Pre-Order ($35.00)',
-        amount: 3500
-        });
-        e.preventDefault();
-    });
-    </script>
+   
 
 
     

@@ -41,6 +41,33 @@ $(document).ready(function() {
 		console.log("Buy");
 	});
 
+
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_4TzBTXvA3s0wWq0WfUyJgGQv',
+        image: 'Desktop/TShirtWebsite/startup/common-files/img/logo.png',
+        token: function(token) {
+        // Use the token to create the charge with a server-side script.
+        // You can access the token ID with `token.id`
+        }
+    });
+
+    document.getElementById('btn-wide').addEventListener('click', function(e) {
+        // Open Checkout with further options
+        handler.open({
+        name: 'Connected Clothing',
+        description: 'Pre-Order One Month of T-Shirts',
+        amount: 3500,
+        shippingAddress: true,
+        billingAddress:true,
+        panelLabel: 'Pre-Order',
+        });
+        e.preventDefault();
+  	});
+
+
+
+
+
 	$(".btn-large").click(function() {
 		console.log("Subscribe");
 

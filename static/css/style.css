@@ -1023,13 +1023,13 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 .content-12 {
   position: relative;
 }
-.content-12 .wide {
+#btn-wide {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
 }
-.content-12 .btn-wide {
+#btn-wide {
   padding-top: 40px;
   padding-bottom: 40px;
   text-align: center;
@@ -1044,17 +1044,17 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   -o-transition: 0.25s color, 0.25s background-color;
   transition: 0.25s color, 0.25s background-color;
 }
-.content-12 .btn-wide:hover,
-.content-12 .btn-wide:focus,
-.content-12 .btn-wide.active {
+#btn-wide:hover,
+#btn-wide:focus,
+#btn-wide.active {
   color: #ffffff;
 }
-.content-12 .btn-wide:hover,
-.content-12 .btn-wide:active {
+#btn-wide:hover,
+#btn-wide:active {
   background: #e74c3c;
 }
 @media (max-width: 767px) {
-  .content-12 .btn-wide {
+  #btn-wide {
     font-size: 30px;
   }
 }
