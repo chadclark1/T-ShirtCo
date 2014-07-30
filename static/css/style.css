@@ -1100,10 +1100,12 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   padding-top: 180px;
   padding-bottom: 50px;
 }
-.content-4 .features > [class*="col-sm-"] > img:first-child {
+.content-4 .features > [class*="col-sm-"] > i {
   position: absolute;
   left: 15px;
   top: 30px;
+  border: 3px;
+  color: #34495e;
 }
 .content-4 .features:last-child > [class*="col-sm-"],
 .content-4 .features.last > [class*="col-sm-"] {

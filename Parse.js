@@ -48,6 +48,67 @@ $(document).ready(function() {
         token: function(token) {
         // Use the token to create the charge with a server-side script.
         // You can access the token ID with `token.id`
+        
+        Parse.Cloud.run('preOrder', {
+            token: token.id
+        }, {
+            // Success handler
+                success: function(message) {
+                    alert('Success: 1' + message);
+                    console.log(token.email);
+
+                    var Address = token.email;
+
+                    var Email = Parse.Object.extend("Email");
+                    var email = new Email();
+ 
+                    email.set("Address", Address);
+
+                    console.log(Address + '5');
+
+                    email.save(null, {
+                        success: function(email) {
+                            // Execute any logic that should take place after the object is saved.
+                            console.log('New object created with objectId: ' + email.id);
+                            alert(token.email);
+                        // Invoke our cloud function, using the phone number in the text field
+                        Parse.Cloud.run('introEmail', {
+                            Address: token.email
+                            }, {
+                                // Success handler
+                                success: function(message) {
+                                    alert('Success: ' + message);
+                                },
+                                // Error handler
+                                error: function(message) {
+                            alert('Error: ' + message);
+                                }
+                            });
+                        }
+                    });
+
+
+                },
+                // Error handler
+                error: function(message) {
+                    alert('Error: 2' + message);
+                }
+             })
+        Parse.Cloud.run('createCustomer',{
+            token: token.id,
+            email: token.email,
+            name: token.card.name,
+        }, {
+            // Success handler
+                success: function(message) {
+                    alert('Success: 3' + message);
+
+                },
+                // Error handler
+                error: function(message) {
+                    alert('Error: 4' + message);
+                }
+        })
         }
     });
 
