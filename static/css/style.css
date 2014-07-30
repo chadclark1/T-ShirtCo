@@ -1098,15 +1098,19 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 .content-4 .features > [class*="col-sm-"] {
   position: relative;
   padding-top: 180px;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
 }
 .content-4 .features > [class*="col-sm-"] > i {
   position: absolute;
   left: 15px;
   top: 30px;
-  border: 3px;
   color: #34495e;
 }
+
+.content-4 .features h3 {
+  margin-top-top: -500x;
+}
+
 .content-4 .features:last-child > [class*="col-sm-"],
 .content-4 .features.last > [class*="col-sm-"] {
   padding-bottom: 0;
