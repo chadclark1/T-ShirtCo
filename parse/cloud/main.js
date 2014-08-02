@@ -1,4 +1,4 @@
- 
+
 Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
@@ -13,10 +13,10 @@ mandrill.initialize('ncsdDZJxpHtZ16xUu5JTpA');
 
   mandrill.sendEmail({
     message: {
-      text: "Hello!",
+      text: "Hello, Thanks for signing up for news from People Clothing.",
       subject: "Thanks for Signing Up!",
       from_email: "Chad@ConnectedClothing.com",
-      from_name: "Chad",
+      from_name: "Chad from People Clothing",
       to: [
         {
           email: request.params.Address,
@@ -30,82 +30,6 @@ mandrill.initialize('ncsdDZJxpHtZ16xUu5JTpA');
     error: function(httpResponse) { response.error("Uh oh, something went wrong"); }
   });
 });
-
- /*
-var Stripe = require('stripe'),
- express = require('express'),
-  app = express(),
-  path = require('path'), 
-  models = require('cloud/models'), 
-  config = require('cloud/config');
-*/
-
-
-
-/*
-
-Stripe.initialize('sk_test_4TzBP9ev2GGgKq2WMbijiHkG');
-
-/*
-app.set('views', 'cloud/views');
-app.set('view engine', 'ejs');
-app.use(express.bodyParser());
-app.use(express.cookieParser());
-app.use(express.cookieSession({
-  secret: config.secret,
-  cookie: { httpOnly: true }
-}));
-
-
-
-
-
-
-  app.get('/', function(req, res) {
-  res.render('index', {
-    config: config
-    });
-  });
-
-
-
-  app.post('/pay',function(req,res) {
-    var order = new models.Order()
-
-    for (param in models.Order.schema) {
-      order.set(param,req.body[param]);
-    }
-    // Use stripeToken somehow
-
-    token_id = req.body.stripe_token
-    Stripe.Tokens.retrieve(token_id).then(function(token) {
-      order.set('token_id', token_id);
-      order.set('email', token.email);
-
-      return order.save();
-    })
-
-    .then(function(order) {
-      return Stripe.Customers.create({
-        description: order.get('name'),
-        email: order.get('email'),
-        card: order.get('token_id')   
-      })
-    })
-
-    .then(function(customer) {
-      return Stripe.Charges.create({
-        amount: order.calculateAmount(),
-        description:'Pre-Order $35',
-        currency: 'usd',
-        customer: customer.id
-      });
-    })
-
-
-    });
-
-*/
 
 
 

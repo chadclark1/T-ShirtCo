@@ -7,6 +7,14 @@ $(document).ready(function() {
 	$(".input-group-btn").click(function() {
 		console.log("Notify Me");
 
+       var emailAdd = $(".form-control").val();
+
+            if (emailAdd.length <5) {
+               alert("Please enter a valid email address.")
+
+
+        } else {
+
 		var Address = $(".form-control").val();
 
 		var Email = Parse.Object.extend("Email");
@@ -26,7 +34,7 @@ $(document).ready(function() {
         		}, {
             		// Success handler
             		success: function(message) {
-                		alert('Success: ' + message);
+                		alert("Thank you! Please check your inbox for news about People Clothing.");
             		},
             		// Error handler
             		error: function(message) {
@@ -35,7 +43,8 @@ $(document).ready(function() {
         		});
         	}
     	});
-	});	
+	}	
+    });
 
 	$(".btn-wide").click(function() {
 		console.log("Buy");
@@ -54,7 +63,7 @@ $(document).ready(function() {
         }, {
             // Success handler
                 success: function(message) {
-                    alert('Success: 1' + message);
+                    alert('Thank you for your purchase. Please check your email for more details.');
                     console.log(token.email);
 
                     var Address = token.email;
@@ -70,18 +79,18 @@ $(document).ready(function() {
                         success: function(email) {
                             // Execute any logic that should take place after the object is saved.
                             console.log('New object created with objectId: ' + email.id);
-                            alert(token.email);
+                            console.log(token.email);
                         // Invoke our cloud function, using the phone number in the text field
                         Parse.Cloud.run('introEmail', {
                             Address: token.email
                             }, {
                                 // Success handler
                                 success: function(message) {
-                                    alert('Success: ' + message);
+                                    console.log('success'.message);
                                 },
                                 // Error handler
                                 error: function(message) {
-                            alert('Error: ' + message);
+                            console.log('Error: ' + message);
                                 }
                             });
                         }
@@ -101,12 +110,12 @@ $(document).ready(function() {
         }, {
             // Success handler
                 success: function(message) {
-                    alert('Success: 3' + message);
+                    console.log('Success: 3' + message);
 
                 },
                 // Error handler
                 error: function(message) {
-                    alert('Error: 4' + message);
+                    console.log('Error: 4' + message);
                 }
         })
         }
@@ -129,31 +138,49 @@ $(document).ready(function() {
 
 
 
-	$(".btn-large").click(function() {
-		console.log("Subscribe");
+    $(".btn-large").click(function() {
+        console.log("Notify Me");
 
-		var Address = $(".subinput").val();
+       var emailAdd = $(".subinput").val();
 
-		var Email = Parse.Object.extend("Email");
-		var email = new Email();
+            if (emailAdd.length <5) {
+               alert("Please enter a valid email address.")
+
+
+        } else {
+
+        var Address = $(".subinput").val();
+
+        var Email = Parse.Object.extend("Email");
+        var email = new Email();
  
-		email.set("Address", Address);
+        email.set("Address", Address);
 
-		console.log(Address);
+        console.log(Address);
 
-		email.save(null, {
-  			success: function(email) {
-    			// Execute any logic that should take place after the object is saved.
-    			console.log('New object created with objectId: ' + email.id);
-    			
-  			},
-  			error: function(email, error) {
-    			// Execute any logic that should take place if the save fails.
-    			// error is a Parse.Error with an error code and description.
-    			console.log('Could not accept email address: ' + error.message);
-  			}
-		});
+        email.save(null, {
+            success: function(email) {
+            // Execute any logic that should take place after the object is saved.
+            console.log('New object created with objectId: ' + email.id);
+            // Invoke our cloud function, using the phone number in the text field
+            Parse.Cloud.run('introEmail', {
+                Address: $("subinput").val()
+                }, {
+                    // Success handler
+                    success: function(message) {
+                        alert("Thank you! Please check your inbox for news about People Clothing.");
+                    },
+                    // Error handler
+                    error: function(message) {
+                        alert('Error: ' + message);
+                    }
+                });
+            }
 
-	});
 
+        });
+    }   
+    });	  
 });
+
+
