@@ -53,7 +53,7 @@ $(document).ready(function() {
 
     var handler = StripeCheckout.configure({
         key: 'pk_test_4TzBTXvA3s0wWq0WfUyJgGQv',
-        image: 'Desktop/TShirtWebsite/startup/common-files/img/logo.png',
+        image: 'Desktop/TShirtWebsite/startup/common-files/img/PLogoStripe.png',
         token: function(token) {
         // Use the token to create the charge with a server-side script.
         // You can access the token ID with `token.id`
@@ -124,7 +124,7 @@ $(document).ready(function() {
     document.getElementById('btn-wide').addEventListener('click', function(e) {
         // Open Checkout with further options
         handler.open({
-        name: 'Connected Clothing',
+        name: 'People Clothing',
         description: 'Pre-Order One Month of T-Shirts',
         amount: 3500,
         shippingAddress: true,
@@ -139,16 +139,17 @@ $(document).ready(function() {
 
 
     $(".btn-large").click(function() {
-        console.log("Notify Me");
+        console.log("Subscribe");
 
-       var emailAdd = $(".subinput").val();
+        var emailAdd2 = $(".subinput").val();
 
-            if (emailAdd.length <5) {
+            if (emailAdd2.length <5) {
                alert("Please enter a valid email address.")
 
 
         } else {
 
+            console.log("email")
         var Address = $(".subinput").val();
 
         var Email = Parse.Object.extend("Email");
@@ -157,30 +158,39 @@ $(document).ready(function() {
         email.set("Address", Address);
 
         console.log(Address);
+        alert("1 ");
+        alert("2" + Address)
 
         email.save(null, {
             success: function(email) {
-            // Execute any logic that should take place after the object is saved.
-            console.log('New object created with objectId: ' + email.id);
-            // Invoke our cloud function, using the phone number in the text field
-            Parse.Cloud.run('introEmail', {
-                Address: $("subinput").val()
-                }, {
-                    // Success handler
-                    success: function(message) {
-                        alert("Thank you! Please check your inbox for news about People Clothing.");
-                    },
-                    // Error handler
-                    error: function(message) {
-                        alert('Error: ' + message);
-                    }
-                });
+                // Execute any logic that should take place after the object is saved.
+                console.log('New object created with objectId: ' + email.id);
+                alert("s 3");
+                //Send intro email
+                 Parse.Cloud.run('introEmail', {
+                    Address: $(".subinput").val()
+                    }, {
+                        // Success handler
+                        success: function(message) {
+                            alert("4 Thank you! Please check your inbox for news about People Clothing.");
+                        },
+                        // Error handler
+                        error: function(message) {
+                        alert('Error: 5' + message);
+                        }
+                    });            
+                
+            },
+            error: function(email, error) {
+                // Execute any logic that should take place if the save fails.
+                // error is a Parse.Error with an error code and description.
+                console.log('Could not accept email address: ' + error.message);
+                alert("6")
             }
-
-
         });
-    }   
-    });	  
+
+    }
+    })	  
 });
 
 

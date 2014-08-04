@@ -840,10 +840,19 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   margin-top: -50px;
   width:250px;
 }
+@media (max-width: 480px) {
+  .header-14-sub img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:0px;
+  }
+}
+
 .header-14-sub .container {
   position: relative;
   text-align: center;
-  margin-top: -50px;
+  margin-top: 0px;
 }
 .header-14-sub h1,
 .header-14-sub .h1,
@@ -871,12 +880,18 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 }
 @media (max-width: 480px) {
   .header-14-sub {
+   
     padding-top: 50px;
     padding-bottom: 50px;
   }
 }
 .header-14-sub h3 {
   margin: 0 0 30px;
+}
+@media (max-width: 767px) {
+  .header-14-sub h3 {
+    font-size: 24px;
+  }
 }
 .header-14-sub .header-14 {
   margin-bottom: 65px;
@@ -900,12 +915,18 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   text-align: center;
   margin-right: auto;
   margin-left: auto;
+  margin-top: -50px;
+}
+@media (max-width: 767px) {
+  .header-14 div {
+    margin-top: 25px;
+  }
 }
 .header-14-sub .hero-unit {
   display: table;
   border-collapse: collapse;
   padding: 0;
-  margin: 180px auto 170px;
+  margin: 180px auto 20px;
   background: transparent;
   color: white;
   text-align: center;
@@ -914,7 +935,10 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   display: table-cell;
   vertical-align: middle;
   border: 8px solid #fff;
-  padding: 25px 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   text-align: center;
   max-width: 650px;
 }
@@ -925,6 +949,13 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   color: #ffffff;
   font-weight: 500;
 }
+@media (max-width: 767px) {
+  .header-14-sub .hero-unit h1 {
+    text-align: center;
+    font-size:28px
+  }
+}
+
 /* HELP */
 .header-14-sub .hero-unit span {
   margin-top: 0;
@@ -933,11 +964,7 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   color: #ffffff;
   line-height: 300%;
 }
-@media (max-width: 767px) {
-  .header-14-sub .hero-unit h1 {
-    text-align: center;
-  }
-}
+
 .header-14-sub .hero-unit p {
   margin: 0;
   font-size: 13px;
@@ -946,11 +973,11 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 }
 @media (max-width: 480px) {
   .header-14-sub .hero-unit {
-    margin: 0 auto 65px;
+    margin: 0 auto 5px;
   }
 }
 .coming{
-  margin-top: -150px;
+  margin-top: 0px;
   margin-bottom: 150px;
 }
 
@@ -958,11 +985,11 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   background-image: url("../../startup/common-files/img/tshirt.png");
   opacity: 20;
   filter: alpha(opacity=2000);
-  opacity: 0.2;
+  opacity: 0.4;
   filter: alpha(opacity=20);
 }
 .header-14-sub .subscribe-form form {
-  margin: 40px 0 10px;
+  margin-bottom: 10px;
 }
 .header-14-sub .subscribe-form form .input-group input[type="text"] {
   border-color: white;
@@ -1150,6 +1177,7 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   -o-background-size: cover;
   background-size: cover;
   background-image: url("../../startup/common-files/img/Man.jpg");
+  background-position:center;
   color: white;
 }
 
@@ -1279,7 +1307,7 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 }
 @media (max-width: 767px) {
   .content-23 .hero-unit.hero-unit-bordered h1 {
-    font-size: 28px;
+    font-size: 36px;
     font-weight: normal;
     color: #ffffff;
     font-weight: 600;
@@ -1424,7 +1452,7 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
     width: 100%;
     margin-bottom: 33px;
     line-height: 27px;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: normal;
     color: #ffffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
