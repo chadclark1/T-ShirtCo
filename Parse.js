@@ -53,7 +53,7 @@ $(document).ready(function() {
 
     var handler = StripeCheckout.configure({
         key: 'pk_test_4TzBTXvA3s0wWq0WfUyJgGQv',
-        image: 'Desktop/TShirtWebsite/startup/common-files/img/PLogoStripe.png',
+        image: '../../startup/common-files/img/PLogoStripe.png',
         token: function(token) {
         // Use the token to create the charge with a server-side script.
         // You can access the token ID with `token.id`
