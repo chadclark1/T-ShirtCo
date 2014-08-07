@@ -10,7 +10,7 @@ $(document).ready(function() {
        var emailAdd = $(".form-control").val();
 
             if (emailAdd.length <5) {
-               alert("Please enter a valid email address.")
+               alert("Please enter a valid email address.");
 
 
         } else {
@@ -29,6 +29,22 @@ $(document).ready(function() {
           	// Execute any logic that should take place after the object is saved.
           	console.log('New object created with objectId: ' + email.id);
         	// Invoke our cloud function, using the phone number in the text field
+
+              Parse.Cloud.run('SubscribeUserToMailingList', {
+                    listid      : "9748c09977",
+                    email       : $(".form-control").val()
+                })
+                .then(function(success){
+                    console.log("Successfully subscribed");
+                    // ...
+                },
+                function(error){
+                    console.log("Unable to subscribe");
+                    // ...
+                });
+
+
+
         	Parse.Cloud.run('introEmail', {
             	Address: $(".form-control").val()
         		}, {
@@ -42,6 +58,8 @@ $(document).ready(function() {
             		}
         		});
         	}
+
+
     	});
 	}	
     });
@@ -66,6 +84,22 @@ $(document).ready(function() {
                     alert('Thank you for your purchase. Please check your email for more details.');
                     console.log(token.email);
 
+                            Parse.Cloud.run('SubscribeUserToMailingList', {
+                                listid      : "9748c09977",
+                                email       : token.email
+                            })
+                            .then(function(success){
+                                console.log("Successfully subscribed");
+                                // ...
+                            },
+                            function(error){
+                                console.log("Unable to subscribe");
+                                // ...
+                            });
+
+
+
+
                     var Address = token.email;
 
                     var Email = Parse.Object.extend("Email");
@@ -80,6 +114,8 @@ $(document).ready(function() {
                             // Execute any logic that should take place after the object is saved.
                             console.log('New object created with objectId: ' + email.id);
                             console.log(token.email);
+
+
                         // Invoke our cloud function, using the phone number in the text field
                         Parse.Cloud.run('introEmail', {
                             Address: token.email
@@ -166,6 +202,21 @@ $(document).ready(function() {
                 // Execute any logic that should take place after the object is saved.
                 console.log('New object created with objectId: ' + email.id);
                 alert("s 3");
+
+                Parse.Cloud.run('SubscribeUserToMailingList', {
+                    listid      : "9748c09977",
+                    email       : $(".subinput").val()
+                })
+                .then(function(success){
+                    console.log("Successfully subscribed");
+                    // ...
+                },
+                function(error){
+                    console.log("Unable to subscribe");
+                    // ...
+                });
+
+
                 //Send intro email
                  Parse.Cloud.run('introEmail', {
                     Address: $(".subinput").val()

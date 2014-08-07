@@ -103,5 +103,46 @@ Stripe.initialize('sk_test_4TzBP9ev2GGgKq2WMbijiHkG');
 
 
 
+var mailchimpApiKey = "4d99750dd39352efa9c1d488e97ecfb0-us8";
+
+Parse.Cloud.define("SubscribeUserToMailingList", function(request, response) {
+
+  if (!request.params ||
+        !request.params.email){
+    response.error("Must supply email address, firstname and lastname to Mailchimp signup");
+    return;
+  }
+
+  var mailchimpData = {
+    apikey  : mailchimpApiKey,
+    id      : request.params.listid,
+    email   : {
+      email : request.params.email
+    },
+    double_optin : false,
+  }
+
+  var url = "https://us8.api.mailchimp.com/2.0/lists/subscribe.json";
+
+  Parse.Cloud.httpRequest({
+    method: 'POST',
+    url: url,
+    body: JSON.stringify(mailchimpData),
+    success: function(httpResponse) {
+      console.log(httpResponse.text);
+
+      response.success("Successfully subscribed");
+    },
+    error: function(httpResponse) {
+      console.error('Request failed with response code ' + httpResponse.status);
+      console.error(httpResponse.text);
+
+      response.error('Mailchimp subscribe failed with response code ' + httpResponse.status);
+    }
+  });
+
+});
+
+
 
 
