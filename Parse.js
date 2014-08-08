@@ -117,7 +117,7 @@ $(document).ready(function() {
 
 
                         // Invoke our cloud function, using the phone number in the text field
-                        Parse.Cloud.run('introEmail', {
+                        Parse.Cloud.run('PreOrderEmail', {
                             Address: token.email
                             }, {
                                 // Success handler
@@ -131,14 +131,15 @@ $(document).ready(function() {
                             });
                         }
                     });
-
-
                 },
+
                 // Error handler
                 error: function(message) {
                     alert('Error: 2' + message);
                 }
              })
+
+
         Parse.Cloud.run('createCustomer',{
             token: token.id,
             email: token.email,
@@ -175,17 +176,16 @@ $(document).ready(function() {
 
 
     $(".btn-large").click(function() {
-        console.log("Subscribe");
+        console.log("Notify Me");
 
-        var emailAdd2 = $(".subinput").val();
+       var emailAdd = $(".subinput").val();
 
-            if (emailAdd2.length <5) {
-               alert("Please enter a valid email address.")
+            if (emailAdd.length <5) {
+               alert("Please enter a valid email address.");
 
 
         } else {
 
-            console.log("email")
         var Address = $(".subinput").val();
 
         var Email = Parse.Object.extend("Email");
@@ -194,16 +194,14 @@ $(document).ready(function() {
         email.set("Address", Address);
 
         console.log(Address);
-        alert("1 ");
-        alert("2" + Address)
 
         email.save(null, {
             success: function(email) {
-                // Execute any logic that should take place after the object is saved.
-                console.log('New object created with objectId: ' + email.id);
-                alert("s 3");
+            // Execute any logic that should take place after the object is saved.
+            console.log('New object created with objectId: ' + email.id);
+            // Invoke our cloud function, using the phone number in the text field
 
-                Parse.Cloud.run('SubscribeUserToMailingList', {
+              Parse.Cloud.run('SubscribeUserToMailingList', {
                     listid      : "9748c09977",
                     email       : $(".subinput").val()
                 })
@@ -217,30 +215,31 @@ $(document).ready(function() {
                 });
 
 
-                //Send intro email
-                 Parse.Cloud.run('introEmail', {
-                    Address: $(".subinput").val()
-                    }, {
-                        // Success handler
-                        success: function(message) {
-                            alert("4 Thank you! Please check your inbox for news about People Clothing.");
-                        },
-                        // Error handler
-                        error: function(message) {
-                        alert('Error: 5' + message);
-                        }
-                    });            
-                
-            },
-            error: function(email, error) {
-                // Execute any logic that should take place if the save fails.
-                // error is a Parse.Error with an error code and description.
-                console.log('Could not accept email address: ' + error.message);
-                alert("6")
-            }
-        });
 
+            Parse.Cloud.run('introEmail', {
+                Address: $(".subinput").val()
+                }, {
+                    // Success handler
+                    success: function(message) {
+                        alert("Thank you! Please check your inbox for news about People Clothing.");
+                    },
+                    // Error handler
+                    error: function(message) {
+                        alert('Error: ' + message);
+                    }
+                });
+            },
+
+                error: function(email, error) {
+                console.log('Could not accept email address: ' + error.message);
+                alert("Error")
+            },
+
+        });
     }
+
+
+
     })	  
 });
 

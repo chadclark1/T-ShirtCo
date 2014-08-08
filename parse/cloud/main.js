@@ -6,7 +6,7 @@ Parse.Cloud.define("hello", function(request, response) {
 
 
 
-
+//Subscribe Email
 Parse.Cloud.define("introEmail", function(request, response) {
 var mandrill = require("mandrill");
 mandrill.initialize('ncsdDZJxpHtZ16xUu5JTpA');
@@ -15,7 +15,36 @@ mandrill.initialize('ncsdDZJxpHtZ16xUu5JTpA');
     message: {
       text: "Hello, Thanks for signing up for news from People Clothing.",
       subject: "Thanks for Signing Up!",
-      from_email: "Chad@ConnectedClothing.com",
+      from_email: "Chad@People-Clothing.com",
+      from_name: "Chad from People Clothing",
+      to: [
+        {
+          email: request.params.Address,
+          name: ""
+        }
+      ]
+    },
+    async: true
+  }, {
+    success: function(httpResponse) { response.success("Email sent!"); },
+    error: function(httpResponse) { response.error("Uh oh, something went wrong"); }
+  });
+});
+
+
+
+
+
+//PreOrder Email
+Parse.Cloud.define("PreOrderEmail", function(request, response) {
+var mandrill = require("mandrill");
+mandrill.initialize('ncsdDZJxpHtZ16xUu5JTpA');
+
+  mandrill.sendEmail({
+    message: {
+      text: "Hello, Thanks for your purchase from People Clothing.",
+      subject: "Thanks for PreOrder!",
+      from_email: "Chad@People-Clothing.com",
       from_name: "Chad from People Clothing",
       to: [
         {
