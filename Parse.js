@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 
 
-        	Parse.Cloud.run('introEmail', {
+        	Parse.Cloud.run('MandrillSubscribe', {
             	Address: $(".form-control").val()
         		}, {
             		// Success handler
@@ -117,7 +117,7 @@ $(document).ready(function() {
 
 
                         // Invoke our cloud function, using the phone number in the text field
-                        Parse.Cloud.run('PreOrderEmail', {
+                        Parse.Cloud.run('MandrillPreOrder', {
                             Address: token.email
                             }, {
                                 // Success handler
@@ -216,7 +216,7 @@ $(document).ready(function() {
 
 
 
-            Parse.Cloud.run('introEmail', {
+            Parse.Cloud.run('MandrillSubscribe', {
                 Address: $(".subinput").val()
                 }, {
                     // Success handler
