@@ -1198,7 +1198,7 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   font-size: 40px;
   font-weight: normal;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #7f8c8d;
+  color: #fff;
   background: #1abc9c;
   font-weight: 300;
   -webkit-transition: 0.25s color, 0.25s background-color;
