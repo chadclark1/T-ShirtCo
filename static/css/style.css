@@ -895,6 +895,7 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   }
 }
 .header-14-sub h3 {
+  python -m SimpleHTTPServer [port]
   margin: 0 0 30px;
 }
 @media (max-width: 800px) {
@@ -996,6 +997,16 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 .coming{
   margin-top: 0px;
   margin-bottom: 150px;
+}
+
+@media (max-width: 480px) {
+  .header-14 h3 {
+    margin-top: -100px;
+  }
+};
+
+.header-14 h5 {
+  font-weight: 100;
 }
 
 @media (max-width: 480px) {
@@ -1192,8 +1203,8 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   display: block;
 }
 #btn-wide {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 25px;
   text-align: center;
   font-size: 40px;
   font-weight: normal;
@@ -1205,6 +1216,9 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   -moz-transition: 0.25s color, 0.25s background-color;
   -o-transition: 0.25s color, 0.25s background-color;
   transition: 0.25s color, 0.25s background-color;
+}
+#btn-wide h6 {
+  color:#fff;
 }
 #btn-wide:hover,
 #btn-wide:focus,
