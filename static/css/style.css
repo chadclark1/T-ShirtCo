@@ -895,7 +895,6 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   }
 }
 .header-14-sub h3 {
-  python -m SimpleHTTPServer [port]
   margin: 0 0 30px;
 }
 @media (max-width: 800px) {
@@ -1000,16 +999,6 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 }
 
 @media (max-width: 480px) {
-  .header-14 h3 {
-    margin-top: -100px;
-  }
-};
-
-.header-14 h5 {
-  font-weight: 100;
-}
-
-@media (max-width: 480px) {
   .header-14-sub h6 {
     font-size: 18px;
     margin-top: 0px;
@@ -1018,12 +1007,22 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
 }
 
 .header-14-sub .background {
-  background-image: url("../../startup/common-files/img/tshirt.png");
+  background-image: url("../../startup/common-files/img/tshirt4.jpg");
   opacity: 20;
   filter: alpha(opacity=2000);
   opacity: 0.4;
   filter: alpha(opacity=20);
 }
+@media (max-width: 500px) {
+  .header-14-sub .background {
+  background-image: url("../../startup/common-files/img/tshirt5.jpg");
+  opacity: 20;
+  filter: alpha(opacity=2000);
+  opacity: 0.4;
+  filter: alpha(opacity=20);
+}
+}
+
 .header-14-sub .subscribe-form form {
   margin-bottom: 10px;
 }
@@ -1218,7 +1217,7 @@ body > .navbar-collapse .navbar-search .btn-primary:hover {
   transition: 0.25s color, 0.25s background-color;
 }
 #btn-wide h6 {
-  color:#fff;
+  color: #fff;
 }
 #btn-wide:hover,
 #btn-wide:focus,
