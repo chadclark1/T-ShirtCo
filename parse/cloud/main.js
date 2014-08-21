@@ -88,7 +88,7 @@ var Stripe = require('stripe');
 models = require('cloud/models'), 
 config = require('cloud/config');
 */
-Stripe.initialize('sk_test_4TzBP9ev2GGgKq2WMbijiHkG');
+Stripe.initialize('sk_live_4TzBCnlwOLefu0SPO0szHDIf');
 
 
 Parse.Cloud.define("createCustomer", function(request, response) { 

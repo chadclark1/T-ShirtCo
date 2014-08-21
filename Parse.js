@@ -70,7 +70,7 @@ $(document).ready(function() {
 
 
     var handler = StripeCheckout.configure({
-        key: 'pk_test_4TzBTXvA3s0wWq0WfUyJgGQv',
+        key: 'pk_live_4TzBB2YwP8Q3LgmUaX2uH1BE',
         image: '../../startup/common-files/img/PLogoStripe.png',
         token: function(token) {
             // Use the token to create the charge with a server-side script.
@@ -175,7 +175,7 @@ $(document).ready(function() {
 
 
 
-    $(".subscribe2").click(function() {
+    $(".btn-large").click(function() {
         console.log("Notify Me");
 
         var emailAdd = $(".subinput").val();

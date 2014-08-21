@@ -295,10 +295,12 @@ function jqueryCookie ($) {
 			.attr("class", "untorch-submit-button")
 			.attr("data-untorch-element", "submit")
 			.css({
-				'background-color': '#2ecc71',
+				'background-color': '#1abc9c',
 				'color': 'white',
 				'border-radius': '6px',
-				'border': '1px solid transparent'
+				'border': '1px solid transparent',
+				'margin': '0 auto',
+				'margin-top': '15px',
 
 			})
 			.append('<span class="untorch-submit-button-inner"> Get Early Access </span>')
@@ -367,8 +369,8 @@ function jqueryCookie ($) {
 			.attr("src", _homeUrl + "/campaigns/" + _campaignId + "/confirmation/" + referralToken)
 			.attr("frameborder", "0")
 			.css({
-				position: "fixed",
-				top: "0",
+				position: "absolute",
+				top: "515px",
 				left: "0",
 				width: "100%",
 				height: "100%",
